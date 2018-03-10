@@ -34,7 +34,7 @@ const Eth = new web3(ETHEREUM_NODE_ADDRESS).eth;
 
 
 wait(`Address of Ethereum Node is ${ETHEREUM_NODE_ADDRESS}`);
-wait(`All transactions will be created using GAS ${transactionDefaults.GAS} and GAS PRICE ${transactionDefaults.GAS_PRICE}`);
+wait(`All transactions will be created using GAS ${transactionDefaults.GAS} and GAS PRICE ${transactionDefaults.GAS_PRICE} wei`);
 wait(`The following contract will be deployed on the blockchain:\n${"-".repeat(80)}\n${contractCode}\n${"-".repeat(80)}`);
 wait(`\nContract bytecode is:\n\n${byteCode}\n\nAnd its ABI (Application Binary Interface) is:\n${JSON.stringify(abi, null, 2)}`);
 
