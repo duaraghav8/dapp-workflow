@@ -48,4 +48,16 @@ truffle console
 > (Check DummyCoin balance for coinbase account again to notice the new balance) token.balanceOf(web3.eth.coinbase)
 ```
 
+## Ropsten
+1. Head to Ethereum Remix IDE
+2. Create `DummyCoin.sol` and paste its code from local
+3. Create `DummyCoinCrowdsale.sol` and paste its code from local
+4. Fix the `import`s issue in Remix by simply replacing `openzeppelin-solidity/...` by `https://github.com/OpenZeppelin/openzeppelin-solidity/...` in all import statements
+5. Log into your metamask wallet (chrome extension) and **select Ropsten Network** to ensure you don't end up spending real money. Make sure you have ether in your Ropsten account.
+5. Under the `Run` tab, select the smart contract to deploy from dropdown menu, specify the constructor arguments (if any required), then click `Deploy`. Remember that **we will first deploy the token contract, then the crowdsale contract**. This is because the crowdsale contract requires us to pass the token contract's blockchain address as an argument in its constructor.
+6. Keep in mind that in remix, address arguments are to be enclosed within double quotes.
+7. Once both contracts are deployed, call `transferOwnership()` method of the Dummy Coin token you deployed first and provide the crowdsale's address to it. This tells the token contract that it has a new owner and allows the crowdsale to mint the tokens when someone wants to buy it.
+8. Add your token's address to your metamask wallet under `tokens`. It will then show you that you currently hold 0 units of this token.
+8. Go ahead and buy tokens by calling the `buyTokens()` method from the crowdsale contract. This will deduct test ETH from your Ropsten account and update your token balance. These changes will reflect in your metamask.
+
 Inspired by [this blog](https://blog.zeppelin.solutions/how-to-create-token-and-initial-coin-offering-contracts-using-truffle-openzeppelin-1b7a5dae99b6)
