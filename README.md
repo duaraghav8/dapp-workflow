@@ -60,4 +60,13 @@ truffle console
 8. Add your token's address to your metamask wallet under `tokens`. It will then show you that you currently hold 0 units of this token.
 8. Go ahead and buy tokens by calling the `buyTokens()` method from the crowdsale contract. This will deduct test ETH from your Ropsten account and update your token balance. These changes will reflect in your metamask.
 
-Inspired by [this blog](https://blog.zeppelin.solutions/how-to-create-token-and-initial-coin-offering-contracts-using-truffle-openzeppelin-1b7a5dae99b6)
+### Arguments for the Crowdsale contract
+To deploy DummyCoinCrowdsale contract, you'll have to specify several arguments:
+
+- `_openingTime`: The datetime at which the crowdsale will begin. This **must** be greater than the time at which you deploy the contract. Use `web3.eth.getBlock('latest').timestamp + N` to get a timestamp N seconds later than latest block's timestamp.
+- `_closingTime`: The datetime at which the crowdsale closes.
+- `_rate`: The number of tokens you wish to sell per wei. eg- `_rate = 1000` would mean that an investor who send 1 wei will get 1000 tokens.
+- `_wallet`: The ethereum wallet to which all the funds collected from the crowdsale will be forwarded. This should ideally be your wallet so you get all the money collected from crowdsale. Should be enclosed within double quotes in Remix.
+- `_token`: Address of the ERC20 token you deployed. Should be enclosed within double quotes in Remix.
+
+Inspired by [this blog](https://blog.zeppelin.solutions/how-to-create-token-and-initial-coin-offering-contracts-using-truffle-openzeppelin-1b7a5dae99b6).
