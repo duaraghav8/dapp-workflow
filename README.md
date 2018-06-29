@@ -34,3 +34,6 @@ NOTE: The **coinbase account** is the default primary local account on an Ethere
 
 
 `prerequisites.sh` is a simple Bash script that installs the necessary NPM dependencies and sets up solium configuration files. It is to be run before running `deployer.js`. We recommend you run all the commands from this file yourselves so you know all the actions being performed prior to deploying a contract to ethereum blockchain.
+
+## ICO tutorial
+See the `ico` branch in this repository.
